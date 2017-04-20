@@ -2,10 +2,12 @@
 //
 
 #include "stdafx.h"
-
+#include "wektor.h"
 
 int main()
 {
+	wektor<int> moj({ 1,2,3 });
+	moj.print();
     return 0;
 }
 

@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="wektor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Nauka - wektory.cpp" />
