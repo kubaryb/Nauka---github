@@ -68,7 +68,6 @@ wektor<typ*>::wektor(const std::initializer_list<typ*> &x)
 	int it = 0;
 	for (auto el : x)
 	{
-		wart[it] = new typ;
 		wart[it] = el;
 		++it;
 	}
