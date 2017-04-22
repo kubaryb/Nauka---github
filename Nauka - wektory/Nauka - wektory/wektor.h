@@ -4,6 +4,7 @@
 
 #include <initializer_list>
 #include <iostream>
+#include <string>
 
 //normal 11-D array
 
@@ -86,5 +87,27 @@ void wektor<typ*>::print() const
 		std::cout << *wart[i] << " ";
 	std::cout << "\n";
 }
+
+//bool array
+
+template <>
+class wektor<bool>
+{
+protected:
+	int dlg;
+	int8_t* wart;
+public:
+	wektor(const std::initializer_list<int>&x)
+	{
+		dlg = (x.size() % 8) ? x.size() / 8 + 1 : x.size();
+		wart = new int8_t[dlg];
+	}
+	virtual ~wektor()
+	{
+		if (wart)
+			delete[]wart;
+	}
+	virtual void print() const;
+};
 
 #endif // !WEKTOR_H
