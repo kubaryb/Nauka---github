@@ -99,15 +99,34 @@ protected:
 public:
 	wektor(const std::initializer_list<int>&x)
 	{
-		dlg = (x.size() % 8) ? x.size() / 8 + 1 : x.size();
-		wart = new int8_t[dlg];
+		dlg = (x.size() % 8) ? (x.size() / 8 + 1) : x.size()/8;
+		wart = new int8_t[dlg]{ 0 };
+		int i = 0, it = 0;
+		for (auto el:x)
+		{
+			wart[it] |= el << i;
+			++i;
+			if (i == 8)
+			{
+				i = 0;
+				++it;
+			}
+		}
 	}
 	virtual ~wektor()
 	{
 		if (wart)
 			delete[]wart;
 	}
-	virtual void print() const;
+	virtual void print() const
+	{
+		for (int it = 0;it < dlg;++it)
+		{
+			for (int i = 7;i >= 0;--i)
+				std::cout << ((wart[it] & (1 << i))? 1:0);
+			std::cout << "\n";
+		}
+	}
 };
 
 #endif // !WEKTOR_H
