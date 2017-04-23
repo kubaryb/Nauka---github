@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "wektor.h"
 #include "wektor2d.h"
+#include "randomVector.h"
 
 int main()
 {
@@ -30,6 +31,16 @@ int main()
 
 		wektor<bool> moj7{ 1,1,0,0,1,1,0,1 };
 		moj7.print();
+
+		randomVector<int> moj8{ 10,2,8 };
+		moj8.print();
+
+		randomVector<char> moj9{ 10,'a','d' };
+		moj9.print();
+
+		randomVector<double> moj10{ 10,1.0,3.0 };
+		moj10.print();
+
 	}
 	catch (const std::exception &exception)
 	{

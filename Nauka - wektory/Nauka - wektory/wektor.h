@@ -16,6 +16,7 @@ protected:
 	typ* wart;
 public:
 	wektor(const std::initializer_list<typ>&);
+	wektor(const int &x) :dlg(x) { wart = new typ[dlg]{ 0 }; };
 	virtual ~wektor();
 	virtual void print() const;
 };
