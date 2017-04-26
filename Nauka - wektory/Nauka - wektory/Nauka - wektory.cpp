@@ -5,6 +5,21 @@
 #include "wektor.h"
 #include "wektor2d.h"
 #include "randomVector.h"
+#include <string>
+
+template <class typ>
+int wczytaj(std::istream &a, typ &x)
+{
+	a >> x;
+	while (a.fail())
+	{
+		std::cout << "Type again: ";
+		a.clear();
+		a.ignore(1000, '\n');
+		a >> x;
+	}
+	return 1;
+}
 
 int main()
 {
@@ -40,6 +55,10 @@ int main()
 
 		randomVector<double> moj10{ 10,1.0,3.0 };
 		moj10.print();
+
+		int c;
+		wczytaj(std::cin, c);
+		std::cout << c << '\n';
 
 	}
 	catch (const std::exception &exception)
