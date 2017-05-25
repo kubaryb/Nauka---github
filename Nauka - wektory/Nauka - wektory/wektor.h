@@ -19,6 +19,14 @@ public:
 	wektor(const int &x) :dlg(x) { wart = new typ[dlg]{ 0 }; };
 	virtual ~wektor();
 	virtual void print() const;
+	friend std::ostream& operator<<(std::ostream &out, wektor<typ> &wek)
+	{
+		for (int i = 0;i < wek.dlg;++i)
+			out << wek[i] << " ";
+		out <<  "\n";
+		return out;
+	}
+	typ& operator[](const int &ind);
 };
 
 template <class typ>
@@ -46,6 +54,12 @@ void wektor<typ>::print() const
 	for (int i = 0;i < dlg;++i)
 		std::cout << wart[i] << " ";
 	std::cout << "\n";
+}
+
+template <class typ>
+typ& wektor<typ>::operator[](const int &ind)
+{
+	return wart[ind];
 }
 
 //Pointer array
